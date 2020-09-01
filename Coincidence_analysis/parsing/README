@@ -1,0 +1,24 @@
+This directory conatins all of the relevant work for my analysis of STRAW data. 
+It is split into several subdirectories which are explained here.
+
+The `parsing_only` directory contains scripts and files for only parsing the data. 
+Parsing in this case refers to looking at a datafile and looking for times in the data where the noise rate is less than ~20mHz when binned by the millisecond. 
+All of the scripts in the directory parse this way. 
+There is also another directory in this subdirectory which will count how many milliseconds of data was kept in order to give a rate when plotting coincidences.
+The `parsed` directory contains parsed datafiles
+
+
+The `coincidences` directory contains files and scripts related to looking for coincidences in the parsed data.
+The script find_preparsed_coincs will look at an already parsed datafile and find the coincdences 
+whereas the python scripts in `newJulyData` and `stricter_parsing` will take an unparsed data file, parse it, then 
+find the coincidences and output the coincidences from the parsed times.
+
+The `stricter_parsing` directory contains newer parsing where I cut the maximum number of hits per ms down to 20 and above 0. It ended up being the directory which I used for my salinity calculations and the scripts that I would use to analyze more data.
+
+The `newJulyData` directory contains the coincidence and parsing analysis for the latest datarun which was taken at the end of July 2020.
+The files labeled *_all are just consolidations of the directories with the individual files.
+The msCounts directory contains a count of how many milliseconds of data were analyzed so that my coincidence plots have a rate for the y-axis instead of just a count.
+
+The `pulse_check` directory contains plots of the threshold crossing times for all (parsed) coincidences,
+these plots can be found in the `pngs` directory with the coincidence time data in the `coincidenceFiles` directory.
+

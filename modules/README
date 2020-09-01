@@ -1,0 +1,4 @@
+I made a module that contains most of the functions I use for analysing my data whether it is simulated or actual STRAW data.
+I tried to write good docstrings for each function and you can read them in the module file.
+
+The Hamamatsu_QE file must stay in the same dir as the module

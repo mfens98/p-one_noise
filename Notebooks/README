@@ -1,0 +1,38 @@
+This directory contains jupyter notebooks used to analyze the data found in the other directories.
+Note: FILE PATHS ARE WRONG in notebooks but I have put directions to find the correct path in the notebook
+A brief descritption of each notebook can be found below:
+
+Coincidence_analysis:
+
+Parsed Analysis.ipynb: Plots of the STRAW data coincidences found in the `parsing/` directory of 
+mens/Coincidence_analysis/parsing along with calculations of the salinity 
+based on the values found in this notebook.
+The effective volume was found from the Calculate_Veff notebook described below
+
+oldPocam.ipynb: Plots of old Pocam coincidence data, an attempt was done to analyze detector
+efficiency over time but it was unfinished. See oldPocam instruction file.
+
+Arrival_time: Plots to try and get a better smearing time from the sDOM (closer to 7ns instead
+of the 3.5ns TTS). Work in this notebook is unfinished
+
+G4:
+
+Angular Acceptance.ipynb: Code for plotting the angular acceptance of the simulated sDOM,
+for the data used in this analysis see the angular_acceptance simulation
+
+Calculate Veff.ipynb: Code for calculating the effective volume from the absorption simulation. 
+Data must have QE applied before calculating the effective volume 
+
+Match Sim to Data.ipynb: Code to check that my geant4 simulation matches with what we see in 
+the STRAW data
+
+Photon Energies.ipynb: Plots for the output photon energies. Extra code was added at the end to check
+the absorption lengths being added into the simulation
+
+QE script.ipynb: The code to get the QE of each coincident hit in the absorption simulation
+This notebook should be used to take a simulation's data and prepare it for analysis as the 
+simulation itself does nothing about the Quantum efficency. This could also be turned into
+a script but has not been done yet
+
+Simulated Coincidences.ipynb: Look at the coincidence distribution of the simulated coincidences
+

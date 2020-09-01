@@ -1,0 +1,36 @@
+I attempted to do an analysis of detector efficiency over time, looking at 
+old POCAM data to see if I could find coincidences from K40 in the water and measure the calculated
+salinity then vs now. This was unfinished since I ran out of time but instructions on how
+to continue this work can be found here.
+
+The coincidence data has been tagged with which sDOM the coincidence came from and 
+which POCAM was flashing along with the frequency, voltage and colour of each flash.
+A hit is organized as follows:
+[coincidence time difference (random), coincidence time difference (up - down), year, month, day, sDOM#, POCAM#, POCAM voltage, colourIndex] 
+where the colour index is 0='orange', 1='blue', 2='violet', 3='uv'
+
+So far in the notebook I have just plotted all of the coincidences regardless of how close a pocam flash is to that particular sDOM and this is giving an odd coincidence distribution.
+
+My hope is that after playing around with which coincidences to plot we can see a good distribution that is free from flashes
+
+This can be accomplished with a number of numpy conditional statements on the arrays of data, 
+an example is below
+
+The two numpy logical operators you will probably take advantage of are numpy.logical_and() and 
+numpy.logical_or().
+
+Examples:
+
+get all data that has pocam3 and sdom1 OR pocam1 and sDOM5
+
+arr[np.logical_or(np.logical_and(arr.T[5]==1,arr.T[6]==3),np.logical_and(arr.T[5]==5,arr.T[6]==1))]
+
+Since the pocam# is array index 6 and sdom# is index 5
+
+
+There is also dark data which does not need to be filtered and can just be used.
+
+
+If something doesn't make sense or you have questions feel free to email or slack me
+
+mfens98@uvic.ca

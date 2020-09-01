@@ -1,0 +1,15 @@
+This directory contains scripts and output data of pngs of the STRAW data
+
+I was looking for a good choice of 'low' noise times for my coincidence analysis so I plotted datafiles on the lowest threshold for both the upward
+and downward PMTs by the ms. The png files of these plots are in this dir
+
+The `scripts/` directory contains the scripts I used to generate the files 
+The tar file contains two directories of png plots.
+	The `ylim_pdfs/` directory contains plots where the y-axis was restricted to bettter show the lower noise times.
+	The `pdfs/` directory contains plots where nothing is restricted.
+
+Each png has the file that it came from in the title of the plot and the upward pmt plots have a different color than the downward pmt plots so it is
+easier to just glance at the photos.
+
+
+If you decide that you don't care to have these plots, delete the directory. If someone needs them later it isn't too hard to just generate them again

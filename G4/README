@@ -1,0 +1,51 @@
+Geant4 simulations used to model STRAW noise and calculate effective volume for salinity measurement
+
+In order to run these simulatons one needs to compile the code. This can be done via the following:
+
+cd /path/to/sim/dir
+source geant4.sh
+mkdir build
+cd build
+cmake ..
+make
+
+This will create an executable file in the build directory which can then be executed to run the simulation.
+Each simulation has options which will change some of the simulation parameters,
+they can be added as follows ./exec option1 value1 option2 value2
+Noteable options:
+
+ui 1 (or any number != 0) enter ui mode, default 0 (no ui)
+Seed double     Change seed of RNG for simulation, default 0
+WorldRadius length (m)    Change radius of world, default 20. metres
+
+
+A brief description of each simulation can be found here. If one is curious as to which parts of the simulation do what, 
+please see the absorption/k40coinc.cc file as this is the only commented simulation code.
+
+
+absorption:
+	The most complete Potassium-40 simulation can be found in the `absorption` directory. 
+	It will simulate the proper amount of K40 atoms in a (default) 20m volume of water with an appropriately sized sDOM. 
+	This simulation was used to calculate the effective volume for the comparison with the STRAW data concidences and ONC's measure of the Cascadia Basin salinity.
+	My first run of the simulation contained an error where the files did not get written out with the coincidences,
+	so there is a `reanalyze` directory which re-ran the coincidence analysis since I was able to save the data from the simulations. 
+	It also contains files from cedar where the same error occured and was re-analyzed.
+	This simulation does NOT account for the quantum efficiency (QE) of the sDOM, 
+	rather a separate script was written to deal with the QE after the simulation to get higher statistics.
+	See Notebooks/G4.
+
+
+acceptance_sim
+	The `acceptance_sim` simulation contains the code for simulating the angular acceptance of the simulated sDOM. Scripts to gather the
+	data for this test can be found in the acceptance_test/ directory in the simulation directory
+
+glass40
+	The `glass40` directory conatins a simulation for Potassium-40 simulations from the sDOM glass. 
+	It simulates K40 atoms in the glass hemispheres of the sDOM ONLY and nothing in the water.
+
+
+In order for the most accurate simulation (to date) one would need to 
+combine both the absorption and the glass40 simulations in a world with a 50m radius. 
+The 50m size need only be applied to the absorption simulation since this is where the extra hits will originate from.
+My recommendation would be that one writes a script that runs both simlations separately and combines the data afterwards.
+If one is only looking for coincidences between up and down facing pmts then a 20m radius world will suffice with no glass simulations.
