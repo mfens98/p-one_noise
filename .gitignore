@@ -1,0 +1,6 @@
+Data/
+G4/absorption/coincs/datafiles/
+make_pdfs/png_files.tgz
+Coincidence_analysis/parsing/parse_only/parsed
+G4/absorption/reanalyze/*.tgz
+Coincidence_analysis/parsing/pulse_check/pngs.tgz
